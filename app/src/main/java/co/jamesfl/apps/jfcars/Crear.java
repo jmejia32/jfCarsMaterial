@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Arrays;
@@ -54,7 +55,30 @@ public class Crear extends AppCompatActivity {
             etPlaca.requestFocus();
             return false;
         }
+        if (spMarca.getSelectedItemPosition() == 0) {
+            setErrorSpinner(spMarca, res.getString(R.string.errMarca));
+            return false;
+        }
+        if (spModelo.getSelectedItemPosition() == 0) {
+            setErrorSpinner(spModelo, res.getString(R.string.errModelo));
+            return false;
+        }
+        if (etPrecio.getText().toString().isEmpty()) {
+            etPrecio.setError(res.getString(R.string.errPrecio));
+            etPrecio.requestFocus();
+            return false;
+        }
         return true;
+    }
+
+    private void setErrorSpinner(Spinner s, String err) {
+        View v = s.getSelectedView();
+        if (v != null) {
+            TextView txt = (TextView) v;
+            txt.setError("1");
+            spMarca.requestFocus();
+        }
+        Toast.makeText(this, err, Toast.LENGTH_LONG).show();
     }
 
     public void agregar(View v) {
