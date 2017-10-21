@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "109325257398",
+    "firebase_url": "https://jfcars-955c5.firebaseio.com",
+    "project_id": "jfcars-955c5",
+    "storage_bucket": "jfcars-955c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109325257398:android:1b66a8660189e3c8",
+        "android_client_info": {
+          "package_name": "co.jamesfl.apps.jfcars"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "109325257398-omhclvgulfjhcd4qtfamfvn9rpe56sjf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.jamesfl.apps.jfcars",
+            "certificate_hash": "6d7de01cbb88b2fd1b01ccf303943d4e8de7be43"
+          }
+        },
+        {
+          "client_id": "109325257398-hs3ttm13esliimd87o2chkjhsgv6grqa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPH9ObTSksXjQh_bCwL-GH9N0M2YnGk0M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "109325257398-hs3ttm13esliimd87o2chkjhsgv6grqa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

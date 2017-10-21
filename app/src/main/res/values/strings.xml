@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">JFCars</string>
+    <string name="app_name" translatable="false">JFCars</string>
     <string name="titCrear">Create new Car</string>
+    <string name="titEdit">Edit Car data</string>
     <string name="placa">License Plate</string>
     <string name="marca">Brand</string>
     <string name="modelo">Model</string>
@@ -28,10 +29,10 @@
     <string name="errModelo">You must pick a Model</string>
     <string name="errPrecio">Car price is required</string>
     <string name="msjCarro">Car created successfully</string>
-    <string name="menuLista">List All Cars</string>
-    <string name="menuCrear">Create new</string>
-    <string-array name="menu">
-        <item>@string/menuLista</item>
-        <item>@string/menuCrear</item>
-    </string-array>
+    <string name="msjCarroEdit">Car editing complete</string>
+    <string name="errPlacaRep">License plate already registered!</string>
+    <string name="elimTitulo">Delete Car</string>
+    <string name="elimMsj">You are about to delete this car, ¿do you wish to continue?</string>
+    <string name="Si">Yes</string>
+    <string name="No">No</string>
 </resources>

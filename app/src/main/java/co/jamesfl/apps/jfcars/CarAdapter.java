@@ -3,6 +3,7 @@ package co.jamesfl.apps.jfcars;
 import android.content.Context;
 import android.content.res.Resources;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,49 +17,58 @@ import java.util.LinkedList;
  * Created by javie on 7/10/2017.
  */
 
-public class CarAdapter extends BaseAdapter {
-    private Context ctx;
+public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarroViewHolder> {
     private LinkedList<Carro> carros;
     private Resources res;
+    private OnCarroClickListener listnr;
 
-    public CarAdapter(Context ctx, LinkedList<Carro> carros) {
-        this.ctx = ctx;
+    public CarAdapter(Context ctx, LinkedList<Carro> carros, OnCarroClickListener listnr) {
         this.carros = carros;
+        this.listnr = listnr;
         res = ctx.getResources();
     }
 
     @Override
-    public int getCount() {
-        return carros.size();
+    public CarroViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_carro,parent,false);
+        return new CarroViewHolder(v);
     }
 
     @Override
-    public Object getItem(int i) {
-        return carros.get(i);
+    public void onBindViewHolder(CarroViewHolder holder, int position) {
+        final Carro c = carros.get(position);
+        holder.ivFoto.setImageDrawable(ResourcesCompat.getDrawable(res, c.getFoto(), null));
+        holder.tvPlaca.setText(c.getPlaca());
+        holder.tvMarca.setText(c.getMarca());
+        holder.tvModelo.setText(c.getModelo());
+        holder.tvPrecio.setText(c.getPrecio()+"");
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listnr.onCarroClick(c);
+            }
+        });
     }
 
     @Override
-    public long getItemId(int i) {
-        return 0;
+    public int getItemCount() { return carros.size(); }
+
+    public static class CarroViewHolder extends RecyclerView.ViewHolder {
+        private ImageView ivFoto;
+        private TextView tvPlaca, tvMarca, tvModelo, tvPrecio;
+
+
+        public CarroViewHolder(View v) {
+            super(v);
+            ivFoto = v.findViewById(R.id.ivFoto);
+            tvPlaca = v.findViewById(R.id.tvPlaca);
+            tvMarca = v.findViewById(R.id.tvMarca);
+            tvModelo = v.findViewById(R.id.tvModelo);
+            tvPrecio = v.findViewById(R.id.tvPrecio);
+        }
     }
 
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        LayoutInflater li = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = li.inflate(R.layout.item_carro, null);
-        Carro c = carros.get(i);
-        ImageView ivFoto = v.findViewById(R.id.ivFoto);
-        TextView tvPlaca = v.findViewById(R.id.tvPlaca);
-        TextView tvMarca = v.findViewById(R.id.tvMarca);
-        TextView tvModelo = v.findViewById(R.id.tvModelo);
-        TextView tvPrecio = v.findViewById(R.id.tvPrecio);
-
-        ivFoto.setImageDrawable(ResourcesCompat.getDrawable(res, c.getFoto(), null));
-        tvPlaca.setText(c.getPlaca());
-        tvMarca.setText(c.getMarca());
-        tvModelo.setText(c.getModelo());
-        tvPrecio.setText(c.getPrecio()+"");
-
-        return v;
+    public interface OnCarroClickListener {
+        void onCarroClick(Carro c);
     }
 }

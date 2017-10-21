@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="co.jamesfl.apps.jfcars">
+    package="co.jamesfl.apps.jfcars">
 
     <application
         android:allowBackup="true"
@@ -11,15 +11,12 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Principal">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Listado">
-        </activity>
-        <activity android:name=".Crear">
-        </activity>
+        <activity android:name=".CarroForm" />
+        <activity android:name=".CarroDetalle" android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -5,15 +5,17 @@ package co.jamesfl.apps.jfcars;
  */
 
 public class Carro {
-    private String placa, marca, modelo;
+    private String placa, marca, modelo, id;
     private int precio, foto;
 
+    public Carro() {}
     public Carro(String placa, String marca, String modelo, int precio) {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
         this.precio = precio;
     }
+    public Carro(String id) { this.id = id; }
 
     public String getPlaca() {
         return placa;
@@ -57,5 +59,15 @@ public class Carro {
 
     public void guardar() {
         AppLogic.guardarCarro(this);
+    }
+
+    public void eliminar() { AppLogic.eliminarCarro(this); }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="errMarca">Seleccione una marca</string>
+    <string name="errModelo">Debe elegir el modelo</string>
+    <string name="errPlaca">La placa del carro es requerida</string>
+    <string name="errPrecio">El precio del carro es requerido</string>
+    <string name="guardar">Guardar</string>
+    <string name="itemVacio">[Seleccione]</string>
+    <string name="marca">Marca</string>
+    <string name="modelo">Modelo</string>
+    <string name="msjCarro">Carro registrado correctamente</string>
+    <string name="msjCarroEdit">Se ha editado el carro</string>
+    <string name="errPlacaRep">Esta placa ya fue registrada anteriormente</string>
+</resources>
